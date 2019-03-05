@@ -25,7 +25,7 @@ class ViewController: UIViewController {
                     
                     if (concentration.indexOfOneAndOnlyFaceUpCard == nil){
                     for iterator in concentration.cards.indices{
-                        if (!concentration.cards[iterator].isMatched && (iterator != sender.tag - 1)){
+                        if (!concentration.cards[iterator].isMatched){
                             outletCollection[iterator].setTitle("", for: UIControl.State.normal)
                             outletCollection[iterator].backgroundColor = UIColor.gray
                         }
