@@ -29,6 +29,14 @@ class Concentration{
         
     }
     
+    func reset() {
+        indexOfOneAndOnlyFaceUpCard = nil
+        for flipDownIndex in cards.indices{
+            cards[flipDownIndex].isFadeUp = false
+            cards[flipDownIndex].isMatched = false
+        }        
+    }
+    
     
     func chooseCard(at index:Int){
         if !cards[index].isMatched{
