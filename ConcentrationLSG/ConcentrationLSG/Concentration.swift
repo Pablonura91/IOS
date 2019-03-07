@@ -7,11 +7,15 @@
 import Foundation
 
 class Concentration{
-    var emojiChoices = ["😈","😱","👻","👽","🎃","🙀","👾","👹","🤡","🤖","☠️"]
+    let emojisHalloween = ["😈","😱","👻","👽","🎃","🙀","👾","👹","🤡","🤖","☠️"]
+    let emojisFlags = ["🇦🇹", "🇧🇧", "🇹🇩", "🇩🇪", "🇪🇸", "🇻🇬", "🇮🇴", "🇰🇾", "🇭🇷", "🇨🇻", "🇭🇳"]
+    let emojisAnimals = ["🐶", "🐸", "🐧", "🐹", "🐌", "🦋", "🦇", "🐰", "🦊", "🐽", "🦑"]
     var cards = [Card]()
     var indexOfOneAndOnlyFaceUpCard:Int?
     
     init(numberOfPairsOfCards:Int){
+        var emojiChoices = initEmojis()
+        
         for _ in 0..<numberOfPairsOfCards{
             //select random emoji from emojiChoices
             let randomIndex = Int.random(in: 0..<emojiChoices.count)
@@ -57,6 +61,18 @@ class Concentration{
                 indexOfOneAndOnlyFaceUpCard = index
             }
             
+        }
+    }
+    func initEmojis() -> Array <String> {
+        switch Int.random(in: 0..<3) {
+            case 0:
+                return emojisHalloween
+            case 1:
+                return emojisFlags
+            case 2:
+                return emojisAnimals
+            default:
+                return emojisHalloween
         }
     }
 }
